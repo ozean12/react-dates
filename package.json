@@ -102,8 +102,10 @@
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
+    "array-from": "^2.1.1",
     "classnames": "^2.2.5",
     "consolidated-events": "^1.1.0",
+    "es6-set": "^0.1.5",
     "is-touch-device": "^1.0.1",
     "lodash": "^4.1.1",
     "object.assign": "^4.0.4",

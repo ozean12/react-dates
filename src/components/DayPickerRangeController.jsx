@@ -5,6 +5,7 @@ import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
+import Set from 'es6-set';
 
 import { DayPickerPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
@@ -43,6 +44,7 @@ const propTypes = forbidExtraProps({
   focusedInput: FocusedInputShape,
   onFocusChange: PropTypes.func,
   onClose: PropTypes.func,
+  onDayMouseEnter: PropTypes.func,
 
   keepOpenOnDateSelect: PropTypes.bool,
   minimumNights: PropTypes.number,
@@ -90,6 +92,7 @@ const defaultProps = {
   focusedInput: null,
   onFocusChange() {},
   onClose() {},
+  onDayMouseEnter() {},
 
   keepOpenOnDateSelect: false,
   minimumNights: 1,
@@ -410,6 +413,9 @@ export default class DayPickerRangeController extends React.Component {
 
   onDayMouseEnter(day) {
     if (this.isTouchDevice) return;
+
+    this.props.onDayMouseEnter(day);
+
     const { startDate, endDate, focusedInput, minimumNights } = this.props;
     const { hoverDate, visibleDays } = this.state;
 

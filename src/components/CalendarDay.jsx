@@ -5,6 +5,8 @@ import momentPropTypes from 'react-moment-proptypes';
 import { forbidExtraProps, nonNegativeInteger } from 'airbnb-prop-types';
 import moment from 'moment';
 import cx from 'classnames';
+import Set from 'es6-set';
+import arrayFrom from 'array-from'; if (!Array.from) Array.from = arrayFrom;
 
 import { CalendarDayPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
