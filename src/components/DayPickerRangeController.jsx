@@ -82,6 +82,7 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
 
   isRTL: PropTypes.bool,
+  locale: PropTypes.string,
 });
 
 const defaultProps = {
@@ -879,6 +880,7 @@ export default class DayPickerRangeController extends React.Component {
         showKeyboardShortcuts={showKeyboardShortcuts}
         phrases={phrases}
         isRTL={isRTL}
+        locale={this.props.locale}
       />
     );
   }

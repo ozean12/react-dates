@@ -81,6 +81,7 @@ const propTypes = forbidExtraProps({
   // internationalization
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
+  locale: PropTypes.string,
 });
 
 export const defaultProps = {
@@ -183,6 +184,8 @@ function getMonthHeight(el) {
 export default class DayPicker extends React.Component {
   constructor(props) {
     super(props);
+
+    moment.locale(props.locale);
 
     const currentMonth = props.hidden ? moment() : props.initialVisibleMonth();
 
