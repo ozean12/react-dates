@@ -43,6 +43,7 @@ const propTypes = forbidExtraProps({
   focusedInput: FocusedInputShape,
   onFocusChange: PropTypes.func,
   onClose: PropTypes.func,
+  onDayMouseEnter: PropTypes.func,
 
   keepOpenOnDateSelect: PropTypes.bool,
   minimumNights: PropTypes.number,
@@ -92,6 +93,7 @@ const defaultProps = {
   focusedInput: null,
   onFocusChange() {},
   onClose() {},
+  onDayMouseEnter() {},
 
   keepOpenOnDateSelect: false,
   minimumNights: 1,
@@ -447,6 +449,9 @@ export default class DayPickerRangeController extends React.Component {
 
   onDayMouseEnter(day) {
     if (this.isTouchDevice) return;
+
+    this.props.onDayMouseEnter(day);
+
     const {
       startDate,
       endDate,
